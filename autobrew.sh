@@ -205,14 +205,24 @@ brew_cleanup() {
     fi
 }
 
+install_oh-my-zsh() {
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+}
+
+install_vim-plug() {
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+}
+
 # One function to rule them all.
 main() {
     # Customise the following list variables (tap_list, term_list and cask_list) 
     # Leave list blank or comment out the list if not required.
     tap_list="homebrew/cask-fonts"
-    term_list="git htop wget curl tmux"
-    cask_list="the-unarchiver vlc visual-studio-code google-chrome \
-    firefox adobe-acrobat-reader malwarebytes font-fira-code"
+    term_list="git wget curl tmux go fzf jenv jq apktool autojump \
+        jadx maven neovim nmap node pyenv tree-sitter openjdk \
+        openjdk@11 python@3.9 ripgrep rust telnet chezmoi"
+    cask_list="font-fira-code font-fira-code-nerd-font keepassxc rar"
     clear
     term_colors
     script_info
@@ -221,6 +231,8 @@ main() {
     install_homebrew
     brew_packages
     brew_cleanup
+    install_oh-my-zsh
+    install_vim-plug
     term_message gb "\nScript completed."
 }
 
