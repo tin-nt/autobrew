@@ -219,7 +219,7 @@ main() {
     # Customise the following list variables (tap_list, term_list and cask_list) 
     # Leave list blank or comment out the list if not required.
     tap_list="homebrew/cask-fonts"
-    term_list="git wget curl tmux go fzf jenv jq apktool autojump \
+    term_list="git zsh wget curl tmux go fzf jenv jq apktool autojump \
         jadx maven neovim nmap node pyenv tree-sitter openjdk \
         openjdk@11 python@3.9 ripgrep rust telnet chezmoi"
     cask_list="font-fira-code font-fira-code-nerd-font keepassxc rar"
